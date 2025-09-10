@@ -321,8 +321,6 @@ syntax-end -->
 
     <a href="#set_default_table_type">SET DEFAULT_TABLE_TYPE</a><br />
 
-    <a href="#set_exclusive">SET EXCLUSIVE</a><br />
-
     <a href="#set_ignorecase">SET IGNORECASE</a><br />
 
     <a href="#set_lob_compression_algorithm">SET LOB_COMPRESSION_ALGORITHM</a><br />
@@ -412,8 +410,6 @@ syntax-end -->
             
                 <a href="#set_default_table_type" >SET DEFAULT_TABLE_TYPE</a><br />
             
-                <a href="#set_exclusive" >SET EXCLUSIVE</a><br />
-            
                 <a href="#set_ignorecase" >SET IGNORECASE</a><br />
             
                 <a href="#set_lob_compression_algorithm" >SET LOB_COMPRESSION_ALGORITHM</a><br />
@@ -427,9 +423,9 @@ syntax-end -->
                 <a href="#set_max_memory_undo" >SET MAX_MEMORY_UNDO</a><br />
             
                 <a href="#set_max_operation_memory" >SET MAX_OPERATION_MEMORY</a><br />
-                    </td><td class="index">
             
                 <a href="#set_mode" >SET MODE</a><br />
+                    </td><td class="index">
             
                 <a href="#set_optimize_reuse_results" >SET OPTIMIZE_REUSE_RESULTS</a><br />
             
@@ -2382,36 +2378,6 @@ syntax-end -->
 <p>Example:</p>
 <p class="notranslate">
 SET DEFAULT_TABLE_TYPE MEMORY</p>
-
-<h3 id="set_exclusive" class="notranslate" onclick="switchBnf(this)">SET EXCLUSIVE</h3>
-<!-- railroad-start -->
-<pre name="bnf" style="display: none">
-SET EXCLUSIVE { 0 | 1 | 2 }
-</pre>
-<div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SET EXCLUSIVE</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">0</code></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">1</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">2</code></td><td class="le"></td></tr></table></td></tr></table>
-</div>
-<!-- railroad-end -->
-<!-- syntax-start
-<pre class="notranslate">
-SET EXCLUSIVE { 0 | 1 | 2 }
-</pre>
-syntax-end -->
-<p>Switched the database to exclusive mode (1, 2) and back to normal mode (0).
- 
- In exclusive mode, new connections are rejected, and operations by
- other connections are paused until the exclusive mode is disabled.
- When using the value 1, existing connections stay open.
- When using the value 2, all existing connections are closed
- (and current transactions are rolled back) except the connection
- that executes <code class="notranslate">SET EXCLUSIVE</code>.
- Only the connection that set the exclusive mode can disable it.
- When the connection is closed, it is automatically disabled.
- 
- Admin rights are required to execute this command.</p>
-<p>Example:</p>
-<p class="notranslate">
-SET EXCLUSIVE 1</p>
 
 <h3 id="set_ignorecase" class="notranslate" onclick="switchBnf(this)">SET IGNORECASE</h3>
 <!-- railroad-start -->
